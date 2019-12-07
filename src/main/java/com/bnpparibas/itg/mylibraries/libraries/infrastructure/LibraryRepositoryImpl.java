@@ -20,7 +20,7 @@ public class LibraryRepositoryImpl implements LibraryRepository {
     private LibraryDAO libraryDAO;
 
     @Override
-    public Library get(Long id) {
+    public Library get(String id) {
         return libraryDAO.findById(id).map(LibraryJPA::toLibrary).orElseThrow(() -> new MyAppBookException(ErrorCodes.LIBRARY_NOT_FOUND));
     }
 
@@ -36,7 +36,7 @@ public class LibraryRepositoryImpl implements LibraryRepository {
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(String id) {
         libraryDAO.deleteById(id);
     }
 

@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface LibraryDAO extends JpaRepository<LibraryJPA, Long> {
+public interface LibraryDAO extends JpaRepository<LibraryJPA, String > {
     List<Library> findByType(Type type);
 
     List<Library> findByDirectorSurname(String surname);

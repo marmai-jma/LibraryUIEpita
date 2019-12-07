@@ -27,7 +27,7 @@ public class LibraryService {
         return this.libraryRepository.save(newLibrary);
     }
 
-    public Library obtain(Long id) {
+    public Library obtain(String id) {
         return this.libraryRepository.get(id);
     }
 
@@ -35,13 +35,13 @@ public class LibraryService {
         return this.libraryRepository.findAll();
     }
 
-    public void update(Long id, Library libraryWithNewInformations) {
+    public void update(String id, Library libraryWithNewInformations) {
         Library library = obtain(id);
         library.update(libraryWithNewInformations);
         this.libraryRepository.save(library);
     }
 
-    public void remove(Long id) {
+    public void remove(String id) {
         obtain(id);
         this.libraryRepository.delete(id);
     }
@@ -54,25 +54,25 @@ public class LibraryService {
         return this.libraryRepository.findByDirectorSurname(surname);
     }
 
-    public void addBook(Long libraryId, Book book) {
+    public void addBook(String libraryId, Book book) {
         Library library = obtain(libraryId);
         library.addBook(book);
         this.libraryRepository.save(library);
     }
 
-    public void updateBook(Long libraryId, Long bookId, Book book) {
+    public void updateBook(String libraryId, Long bookId, Book book) {
         Library library = obtain(libraryId);
         library.updateBook(bookId, book);
         this.libraryRepository.save(library);
     }
 
-    public void removeBook(Long libraryId, Long bookId) {
+    public void removeBook(String libraryId, Long bookId) {
         Library library = obtain(libraryId);
         library.removeBook(bookId);
         this.libraryRepository.save(library);
     }
 
-    public List<Book> listAllBooks(Long libraryId) {
+    public List<Book> listAllBooks(String libraryId) {
         Library library = obtain(libraryId);
         return Collections.unmodifiableList(library.getBooks());
     }

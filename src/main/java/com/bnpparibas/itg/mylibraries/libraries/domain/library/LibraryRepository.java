@@ -7,9 +7,9 @@ import java.util.List;
 @DDD.Repository
 public interface LibraryRepository {
     String save(Library library);
-    Library get(Long id);
+    Library get(String id);
     List<Library> findAll();
-    void delete(Long id);
+    void delete(String id);
 
     List<Library> findByType(Type type);
     List<Library> findByDirectorSurname(String surname);
